@@ -62,11 +62,16 @@ const countdown = () => {
     const currentDateMs = new Date().getTime();
     const timeLeft = selectedDateMs - currentDateMs;
     const timeLeftConvertMs = convertMs(timeLeft);
-    daysEl.textContent = addLeadingZero(timeLeftConvertMs.days);
-    hoursEl.textContent = addLeadingZero(timeLeftConvertMs.hours);
-    minutesEl.textContent = addLeadingZero(timeLeftConvertMs.minutes);
-    secondsEl.textContent = addLeadingZero(timeLeftConvertMs.seconds);
-  }, 1000);
+    if (timeLeftConvertMs.seconds >= 0) {
+      daysEl.textContent = addLeadingZero(timeLeftConvertMs.days);
+      hoursEl.textContent = addLeadingZero(timeLeftConvertMs.hours);
+      minutesEl.textContent = addLeadingZero(timeLeftConvertMs.minutes);
+      secondsEl.textContent = addLeadingZero(timeLeftConvertMs.seconds);
+    } else {
+      Notiflix.Notify.success('Countdown finished');
+      clearInterval(timerId);
+    }
+  });
 };
 
 startBtn.addEventListener('click', countdown);
