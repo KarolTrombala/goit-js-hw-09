@@ -1,9 +1,9 @@
-import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css";
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
 
 const startBtn = document.querySelector('button[data-start]');
-const inputEl = document.querySelector('datetime-picer');
+const inputEl = document.querySelector('input[type="text"]');
 const daysEl = document.querySelector('[data-days]');
 const hoursEl = document.querySelector('[data-hours]');
 const minutesEl = document.querySelector('[data-minutes]');
@@ -70,4 +70,3 @@ const options = {
     };
 
     startBtn.addEventListener('click', countdown);
-    
