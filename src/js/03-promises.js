@@ -23,12 +23,12 @@ const displayPromise = () => {
 
   for (let i = 1; i <= amountEl.value; i++) {
     createPromise(i, delay)
-    .then(resolve => {
-      Notiflix.Notify.success(resolve);
-    })
-    .catch(reject => {
-      Notiflix.Notify.failure(reject);
-    });
+      .then(resolve => {
+        Notiflix.Notify.success(resolve);
+      })
+      .catch(reject => {
+        Notiflix.Notify.failure(reject);
+      });
 
     delay += +stepEl.value;
   }
